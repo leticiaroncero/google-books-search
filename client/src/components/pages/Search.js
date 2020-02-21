@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 //import Nav from "./components/Nav";
-import Jumbotron from "./components/Jumbotron";
-import Input from "./components/Input";
-import Button from "./components/Button";
+//import Jumbotron from "../Jumbotron";
+import Input from "../Input";
+import Button from "../Button";
 
 class Search extends Component {
     state = {
@@ -15,8 +15,8 @@ class Search extends Component {
     render() {
         return (
           <div>
-            <Nav />
-            <Jumbotron />
+            {/* <Nav /> */}
+            {/* <Jumbotron /> */}
             <div className= "wrapper">
               <div className="row">
               <div className="col-md-12">
@@ -47,7 +47,7 @@ class Search extends Component {
                 </div>
               <div className="row">
                 <div className="xs-12">
-                  {!this.state.books.length ? (
+                  {/* {!this.state.books.length ? (
                     <h1 className="text-center">No Books to Display</h1>
                   ) : (
                       <BookList>
@@ -63,7 +63,7 @@ class Search extends Component {
                           );
                         })}
                       </BookList>
-                    )}
+                    )} */}
                 </div>
               </div>
               </div>
