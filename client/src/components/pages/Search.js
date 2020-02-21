@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import Nav from "./components/Nav";
 //import Jumbotron from "../Jumbotron";
 import Input from "../Input";
 import Button from "../Button";
@@ -15,7 +14,6 @@ class Search extends Component {
     render() {
         return (
           <div>
-            {/* <Nav /> */}
             {/* <Jumbotron /> */}
             <div className= "wrapper">
               <div className="row">
