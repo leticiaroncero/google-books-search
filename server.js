@@ -14,14 +14,26 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 
-// Send every other request to the React app
-// Define any API routes before this runs
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
+
+app.get("/api/books", (req, res) => {
+  //ToDo: query books from database
+  res.json([]);
+});
+
+app.post("/api/books", (req, res) => {
+  //ToDo: insert book (from req body) into database 
+  res.json({});
+});
+
+app.delete("/api/books/:id", (req, res) => {
+  //ToDo: delete book (from req body) into database
+  res.json({});
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
-
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
