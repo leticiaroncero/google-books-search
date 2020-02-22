@@ -2,19 +2,40 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import BookList from "../components/BookList";
+import BookListItem from "../components/BookListItem";
+import axios from "axios";
 
 class Search extends Component {
     state = {
       books: [],
-      bookSearch: ""
+      bookSearch: "",
+      PageType: "search"
     };
 
+    handleInputChange = event => {
+      console.log(event)
+      const { name, value } = event.target;
+      this.setState({
+        [name] : value
+      });
+    };
 
+    handleFormSubmit = event => {
+      event.preventDefault();
+      console.log("submit clicked")
+      axios.get("https://www.googleapis.com/books/v1/volumes?q=" + this.state.bookSearch)
+      .then(res =>
+        //console.log(res.data.items)
+        this.setState({books: res.data.items})
+      ).catch(err => console.log(err));
+      
+    }; 
 
     render() {
         return (
           <div>
-             <Jumbotron />
+            <Jumbotron />
             <div className= "wrapper">
               <div className="row">
               <div className="col-md-12">
@@ -45,23 +66,26 @@ class Search extends Component {
                 </div>
               <div className="row">
                 <div className="xs-12">
-                  {/* {!this.state.books.length ? (
+                  {!this.state.books.length ? (
                     <h1 className="text-center">No Books to Display</h1>
                   ) : (
                       <BookList>
-                        {this.state.books.map(data => {
+                        {this.state.books.map(book => {
                           return (
                             <BookListItem
-                              key={data.book.label}
-                              title={data.book.title}
-                              link={data.book.url}
-                              descripton={data.book.description}
-                              image={data.book.image}
+                              key={book.id}
+                              title={book.volumeInfo.title}
+                              //link={book.volumeInfo.imageLinks.previewLink}
+                              descripton={book.volumeInfo.description}
+                              //image={book.volumeInfo.imageLinks.thumbnail}
+                              //author={book.volumeInfo.authors[0]}
+                              page_type={this.state.PageType}
+
                             />
                           );
                         })}
                       </BookList>
-                    )} */}
+                    )}
                 </div>
               </div>
               </div>
