@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-//import Jumbotron from "../Jumbotron";
+import Jumbotron from "../components/Jumbotron";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import BookList from "../components/BookList";
+import BookListItem from "../components/BookListItem"
 
 class Search extends Component {
     state = {
       books: [],
-      bookSearch: ""
+      bookSearch: "",
+      PageType: "search"
     };
 
 
@@ -14,7 +17,7 @@ class Search extends Component {
     render() {
         return (
           <div>
-            {/* <Jumbotron /> */}
+            <Jumbotron />
             <div className= "wrapper">
               <div className="row">
               <div className="col-md-12">
@@ -25,7 +28,7 @@ class Search extends Component {
                           <Input
                             name="bookSearch"
                             value={this.state.bookSearch}
-                            onChange={this.handleInputChange}
+                            // onChange={this.handleInputChange}
                             placeholder="Search For a Book"
                           />
                         </div>
@@ -45,23 +48,25 @@ class Search extends Component {
                 </div>
               <div className="row">
                 <div className="xs-12">
-                  {/* {!this.state.books.length ? (
+                  {!this.state.books.length ? (
                     <h1 className="text-center">No Books to Display</h1>
                   ) : (
                       <BookList>
-                        {this.state.books.map(data => {
+                        {this.state.books.map(book => {
                           return (
                             <BookListItem
-                              key={data.book.label}
-                              title={data.book.title}
-                              link={data.book.url}
-                              descripton={data.book.description}
-                              image={data.book.image}
+                              key={book.label}
+                              title={book.title}
+                              link={book.url}
+                              descripton={book.description}
+                              image={book.image}
+                              author={book.author}
+                              page_type={this.state.PageType}
                             />
                           );
                         })}
                       </BookList>
-                    )} */}
+                    )}
                 </div>
               </div>
               </div>
