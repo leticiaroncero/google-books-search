@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import Jumbotron from "../Jumbotron";
+import Jumbotron from "../components/Jumbotron";
 import Input from "../components/Input";
 import Button from "../components/Button";
 
@@ -14,7 +14,7 @@ class Search extends Component {
     render() {
         return (
           <div>
-            {/* <Jumbotron /> */}
+             <Jumbotron />
             <div className= "wrapper">
               <div className="row">
               <div className="col-md-12">
