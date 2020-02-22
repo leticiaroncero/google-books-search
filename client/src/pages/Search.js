@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //import Jumbotron from "../Jumbotron";
-import Input from "../Input";
-import Button from "../Button";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 class Search extends Component {
     state = {
