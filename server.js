@@ -3,6 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+var db = require("./models");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,18 +18,40 @@ if (process.env.NODE_ENV === "production") {
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
 app.get("/api/books", (req, res) => {
-  //ToDo: query books from database
-  res.json([]);
+  //query books from database
+  db.Book.find()
+    .then(function (dbBook) {
+      res.json(dbBook);
+    })
+    .catch(function (err) {
+      res.status(500).send("Internal error: " + err);
+    });
 });
 
 app.post("/api/books", (req, res) => {
-  //ToDo: insert book (from req body) into database 
-  res.json({});
+  //insert book (from req body) into database
+  db.Book.create(req.body)
+    .then(function (dbBook) {
+      res.send(dbBook);
+    })
+    .catch(function (err) {
+      res.status(500).send("Error: " + err.message);
+    });
 });
 
 app.delete("/api/books/:id", (req, res) => {
-  //ToDo: delete book (from req body) into database
-  res.json({});
+  //delete book (from req body) into database
+  db.Book.findOneAndRemove({
+    _id: req.params.id
+  })
+    .then(dbBook => {
+      console.log(dbBook)
+      res.status(200).end();
+    })
+    .catch(err => {
+      console.error(err)
+      res.status(400).end()
+    })
 });
 
 app.get("*", (req, res) => {
