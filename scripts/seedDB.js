@@ -22,7 +22,7 @@ const bookSeed = [
         title: "Harry Potter: The Complete Collection"
     }
 ];
-
+ 
 db.Book
   .remove({})
   .then(() => db.Book.collection.insertMany(bookSeed))
