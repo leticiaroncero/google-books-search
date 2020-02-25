@@ -1,10 +1,14 @@
 import React from "react";
 
+
+
+
 function saveButton(props) {
+    console.log(props)
     if (props.page_type === "search") {
-        return <button>Save</button>
+        return <button className="list-button" onClick={() => props.handlesave(props.id)}>Save</button>
     } else {
-        return <button>Delete</button>
+        return <button className="list-button" onClick={() => props.handledelete(props.id)}>Delete</button>
     }
 }
 
@@ -14,11 +18,13 @@ function BookListItem(props) {
             <h3>{props.title}</h3>
             <p>{props.author}</p>
             <div>
-                <img src={props.image} alt={props.title} />
+                <img src={props.image}  alt={props.title} />
                 <p>{props.descripton}</p>
+
+                <a target="_blank" href={props.link}><button>View</button></a>
             </div>
-            <button>View</button>
-            {saveButton()}
+            
+            {saveButton(props)}
         </div>
 
     );
