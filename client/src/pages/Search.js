@@ -11,6 +11,7 @@ class Search extends Component {
       books: [],
       bookSearch: "",
       PageType: "search"
+      
     };
 
     handleInputChange = event => {
@@ -31,7 +32,27 @@ class Search extends Component {
       ).catch(err => console.log(err));
       
     }; 
-
+  handlesave = book => {
+    console.log("handlesave:", book)
+    console.log(this.state.books)
+      const savedBook= this.state.books.filter(elem=>elem.id === book)
+      console.log("savebbook:",savedBook)
+      const booktobeSaved = {
+          
+          title: savedBook[0].volumeInfo.title,
+          author: savedBook[0].volumeInfo.authors[0],
+          description: savedBook[0].volumeInfo.description,
+          image: savedBook[0].volumeInfo.imageLinks.thumbnail,
+          link: savedBook[0].volumeInfo.previewLink,
+          googleId: savedBook[0].id
+   }
+      axios.post("/api/books", booktobeSaved)
+      .then(result=>{
+        console.log(result)
+        const nosaved= this.state.books.filter(elem=>elem.id !== result.data.googleId)
+        this.setState({books: nosaved})
+      })
+  };
     render() {
         return (
           <div>
@@ -74,12 +95,14 @@ class Search extends Component {
                           return (
                             <BookListItem
                               key={book.id}
+                              id={book.id}
                               title={book.volumeInfo.title}
-                              //link={book.volumeInfo.imageLinks.previewLink}
+                              link={book.volumeInfo.previewLink}
                               descripton={book.volumeInfo.description}
-                              //image={book.volumeInfo.imageLinks.thumbnail}
-                              //author={book.volumeInfo.authors[0]}
+                              image ={book.volumeInfo.imageLinks.thumbnail}
+                              author={book.volumeInfo.authors}
                               page_type={this.state.PageType}
+                              handlesave={this.handlesave}
 
                             />
                           );
