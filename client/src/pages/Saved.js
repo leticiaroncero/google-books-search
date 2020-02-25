@@ -7,7 +7,6 @@ import axios from "axios";
 class Saved extends Component {
     state = {
         books: [],
-        bookSearch: "",
         PageType: "saved"
 
     };
@@ -51,7 +50,7 @@ class Saved extends Component {
                                         {this.state.books.map(book => {
                                             return (
                                                 <BookListItem
-                                                    key={book.id}
+                                                    key={book._id}
                                                     id={book._id}
                                                     title={book.title}
                                                     link={book.link}
@@ -65,9 +64,8 @@ class Saved extends Component {
                                             );
                                         })}
                                     </BookList>
-                                )}
+                                
                     
-            
             </div>
         );
     }

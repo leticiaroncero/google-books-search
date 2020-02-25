@@ -20,9 +20,10 @@ function BookListItem(props) {
             <div>
                 <img src={props.image}  alt={props.title} />
                 <p>{props.descripton}</p>
-                <a target="-blank" href={props.link}>Go to the book</a>
+
+                <a target="_blank" href={props.link}><button>View</button></a>
             </div>
-            <button>View</button>
+            
             {saveButton(props)}
         </div>
 

@@ -26,9 +26,9 @@ app.get("/api/books", (req, res) => {
       res.json(dbBook);
     })
 
-    //.catch(function (err) {
-     // res.status(500).send("Internal error: " + err);
-    //});
+    .catch(function (err) {
+     res.status(500).send("Internal error: " + err);
+    });
 });
 
 app.post("/api/books", (req, res) => {
