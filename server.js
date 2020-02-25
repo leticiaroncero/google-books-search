@@ -19,24 +19,29 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
 app.get("/api/books", (req, res) => {
   //query books from database
+  console.log("api get books fron mongo")
   db.Book.find()
     .then(function (dbBook) {
+      console.log(dbBook)
       res.json(dbBook);
     })
+
     .catch(function (err) {
-      res.status(500).send("Internal error: " + err);
+     res.status(500).send("Internal error: " + err);
     });
 });
 
 app.post("/api/books", (req, res) => {
   //insert book (from req body) into database
+  console.log("POST", req.body)
   db.Book.create(req.body)
     .then(function (dbBook) {
-      res.send(dbBook);
+      res.json(dbBook);
     })
-    .catch(function (err) {
-      res.status(500).send("Error: " + err.message);
-    });
+   // .catch(function (err) {
+      //console.log(err)
+     // res.status(500).send("Error: " + err);
+    //});
 });
 
 app.delete("/api/books/:id", (req, res) => {
@@ -46,7 +51,7 @@ app.delete("/api/books/:id", (req, res) => {
   })
     .then(dbBook => {
       console.log(dbBook)
-      res.status(200).end();
+      res.json(dbBook);
     })
     .catch(err => {
       console.error(err)
