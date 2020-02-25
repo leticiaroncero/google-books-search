@@ -1,30 +1,36 @@
 import React from "react";
-
+import "./index.css"
 
 
 
 function saveButton(props) {
     console.log(props)
     if (props.page_type === "search") {
-        return <button className="list-button" onClick={() => props.handlesave(props.id)}>Save</button>
+        return <button type="button" className="list-button btn btn-primary" onClick={() => props.handlesave(props.id)}>Save</button>
     } else {
-        return <button className="list-button" onClick={() => props.handledelete(props.id)}>Delete</button>
+        return <button type="button" className="list-button btn btn-primary" onClick={() => props.handledelete(props.id)}>Delete</button>
     }
 }
 
 function BookListItem(props) {
     return (
-        <div>
-            <h3>{props.title}</h3>
-            <p>{props.author}</p>
-            <div>
-                <img src={props.image}  alt={props.title} />
-                <p>{props.descripton}</p>
-
-                <a target="_blank" href={props.link}><button>View</button></a>
+        <div className="pt-4 pb-4 pr-3 booklist-item">
+            <div className="pl-3 title">
+                <h3 >{props.title}</h3>
+                <p>{props.author}</p>
             </div>
-            
-            {saveButton(props)}
+            <div className="main-container">
+                <div className="media">
+                    <img align-self-start mr-3 src={props.image} alt={props.title} />
+                    <div className="media-body">
+                        <p>{props.description}</p>
+                    </div>
+                </div>
+                <div className="buttons">
+                    <a target="_blank" href={props.link}><button type="button" className="btn btn-primary">View</button></a>
+                    {saveButton(props)}
+                </div>
+            </div>
         </div>
 
     );
