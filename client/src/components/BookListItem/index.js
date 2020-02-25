@@ -18,7 +18,7 @@ function BookListItem(props) {
                 <p>{props.descripton}</p>
             </div>
             <button>View</button>
-            {saveButton()}
+            {saveButton(props)}
         </div>
 
     );

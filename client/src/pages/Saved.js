@@ -2,10 +2,20 @@ import React, { Component, Fragment } from "react";
 import Jumbotron from "../components/Jumbotron";
 import BookListItem from "../components/BookListItem";
 import BookList from "../components/BookList"
+import axios from "axios";
 
 class Saved extends Component {
   state = {
-    savedBooks: []
+    savedBooks: [],
+    PageType: "saved"
+  }
+
+  componentDidMount() {
+    axios.get("/api/books")
+    .then(res => {
+      console.log(res.data)
+      this.setState({savedBooks: res.data})
+    }).catch(err => console.log(err));
   }
 
   render() {
@@ -19,9 +29,9 @@ class Saved extends Component {
           {this.state.savedBooks.map(book => {
             return (
               <BookListItem
-                key={book.label}
+                key={book._id}
                 title={book.title}
-                link={book.url}
+                link={book.link}
                 descripton={book.description}
                 image={book.image}
                 author={book.author}
