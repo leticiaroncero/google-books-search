@@ -1,6 +1,5 @@
 import React from "react";
-
-
+import "./index.css";
 
 
 function saveButton(props) {
@@ -19,7 +18,7 @@ function BookListItem(props) {
             <p>{props.author}</p>
             <div>
                 <img src={props.image}  alt={props.title} />
-                <p>{props.descripton}</p>
+                <p>{props.description}</p>
 
                 <a target="_blank" href={props.link}><button>View</button></a>
             </div>

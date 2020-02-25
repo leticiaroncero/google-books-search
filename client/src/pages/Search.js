@@ -98,7 +98,7 @@ class Search extends Component {
                               id={book.id}
                               title={book.volumeInfo.title}
                               link={book.volumeInfo.previewLink}
-                              descripton={book.volumeInfo.description}
+                              description={book.volumeInfo.description}
                               image ={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : null}
                               author={book.volumeInfo.authors}
                               page_type={this.state.PageType}

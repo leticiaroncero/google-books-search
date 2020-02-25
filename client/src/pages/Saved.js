@@ -54,7 +54,7 @@ class Saved extends Component {
                                                     id={book._id}
                                                     title={book.title}
                                                     link={book.link}
-                                                    descripton={book.description}
+                                                    description={book.description}
                                                     image={book.image}
                                                     author={book.author}
                                                     page_type={this.state.PageType}
