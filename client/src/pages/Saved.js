@@ -11,14 +11,14 @@ class Saved extends Component {
 
     };
     componentDidMount() {
-       this.getsavedbooks()
+        this.getsavedbooks()
     }
 
     getsavedbooks = () => {
 
         console.log("submit getsavedbooks")
         axios.get("/api/books")
-            .then(res =>{
+            .then(res => {
                 //console.log(res.data.items)
                 console.log(res.data)
                 this.setState({ books: res.data })
@@ -30,42 +30,42 @@ class Saved extends Component {
     handledelete = book => {
         console.log("handledelete:", book)
         console.log(this.state.books)
-       
+
         axios.delete("/api/books/" + book)
             .then(result => {
                 console.log(result)
                 this.getsavedbooks()
             })
-        
+
     };
     render() {
         return (
             <div>
 
-                <Jumbotron /> 
+                <Jumbotron />
                 <div>
-                <h1>Saved Page</h1>
-                </div> 
-                                    <BookList>
-                                        {this.state.books.map(book => {
-                                            return (
-                                                <BookListItem
-                                                    key={book._id}
-                                                    id={book._id}
-                                                    title={book.title}
-                                                    link={book.link}
-                                                    description={book.description}
-                                                    image={book.image}
-                                                    author={book.author}
-                                                    page_type={this.state.PageType}
-                                                    handledelete={this.handledelete}
+                    <h1>Saved Page</h1>
+                </div>
+                <BookList>
+                    {this.state.books.map(book => {
+                        return (
+                            <BookListItem
+                                key={book._id}
+                                id={book._id}
+                                title={book.title}
+                                link={book.link}
+                                description={book.description}
+                                image={book.image}
+                                author={book.author}
+                                page_type={this.state.PageType}
+                                handledelete={this.handledelete}
 
-                                                />
-                                            );
-                                        })}
-                                    </BookList>
-                                
-                    
+                            />
+                        );
+                    })}
+                </BookList>
+
+
             </div>
         );
     }

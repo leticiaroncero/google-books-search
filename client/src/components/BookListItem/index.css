@@ -1,0 +1,25 @@
+.booklist-item {
+    border: 5px solid black;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+img {
+    height: 170px;
+    width: 150px;
+    object-fit: contain;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    margin: 3px
+}
+
+.main-container {
+    padding-right: 10px;
+}
