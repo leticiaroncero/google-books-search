@@ -21,7 +21,7 @@ function BookListItem(props) {
             </div>
             <div className="main-container">
                 <div className="media">
-                    <img  align-self-start mr-3 src={props.image} alt={props.title} />
+                    <img align-self-start mr-3 src={props.image || "http://lgimages.s3.amazonaws.com/nc-sm.gif"} alt={props.title} />
                     <div className="media-body">
                         <p>{props.description}</p>
                     </div>

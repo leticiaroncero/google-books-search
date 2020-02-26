@@ -86,9 +86,9 @@ class Search extends Component {
                 </div>
                 </div>
               <div className="row">
-                <div className="xs-12">
+                <div className="col">
                   {!this.state.books.length ? (
-                    <h1 className="text-center">No Books to Display</h1>
+                    <h2 className="text-center">No Books to Display</h2>
                   ) : (
                       <BookList>
                         {this.state.books.map(book => {
