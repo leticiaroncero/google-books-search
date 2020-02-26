@@ -27,7 +27,7 @@ function BookListItem(props) {
                     </div>
                 </div>
                 <div className="buttons">
-                    <a target="_blank" href={props.link}><button type="button" className="btn btn-primary">View</button></a>
+                    <a target="_blank" rel="noopener noreferrer" href={props.link}><button type="button" className="btn btn-primary">View</button></a>
                     {saveButton(props)}
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./index.css";
 
 function NavTabs() {
     return (
@@ -8,7 +9,7 @@ function NavTabs() {
 
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <NavLink to="/" exact={true} className="nav-link">
+                    <NavLink to="/" exact={true} className="mr-4 nav-link">
                         Home
                     </NavLink>
                 </li>
