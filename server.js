@@ -62,6 +62,9 @@ app.delete("/api/books/:id", (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
+// Connect to the Mongo DB
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
