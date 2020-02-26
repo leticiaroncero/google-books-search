@@ -43,9 +43,6 @@ class Saved extends Component {
             <div>
 
                 <Jumbotron />
-                <div>
-                    <h1>Saved Page</h1>
-                </div>
                 <BookList>
                     {this.state.books.map(book => {
                         return (
