@@ -43,6 +43,9 @@ class Saved extends Component {
             <div>
 
                 <Jumbotron />
+                  {!this.state.books.length ? (
+                    <h2 className="text-center">No Books Saved</h2>
+                  ) : (
                 <BookList>
                     {this.state.books.map(book => {
                         return (
@@ -61,7 +64,7 @@ class Saved extends Component {
                         );
                     })}
                 </BookList>
-
+                  )}
 
             </div>
         );
