@@ -1,6 +1,6 @@
 # google-books-search
 
-## Technologies used;
+## Technologies used:
 Visual Studio Code, React, Google Books API, Bootstrap
 
 ## Summary
@@ -27,11 +27,14 @@ In-class assignments
 
 ## Gifs and Screenshots
 
-<!-- ## Badge click resulting in badge shuffle and score increment
-![Badge clicked](https://github.com/demonaco/clicky-game/blob/master/clicky-game/public/badge.gif)
+## Scrolling through results of book search
+![gif of search page](https://github.com/leticiaroncero/google-books-search/blob/master/scroll.gif)
 
-## UI of application
-![UI](https://github.com/demonaco/clicky-game/blob/master/clicky-game/public/Screen%20Shot%202020-02-19%20at%205.10.54%20PM.png)
+ ## UI view of search page and result
+![Search view](https://github.com/leticiaroncero/google-books-search/blob/master/Screen%20Shot%202020-02-26%20at%204.05.22%20PM.png)
 
-## Code snippet passing in props to BadgeCard
-![Passing props](https://github.com/demonaco/clicky-game/blob/master/clicky-game/public/Screen%20Shot%202020-02-19%20at%205.12.16%20PM.png) -->
+## Code snippet of Book schema for Mongoose DB
+![Book schema](https://github.com/leticiaroncero/google-books-search/blob/master/Screen%20Shot%202020-02-26%20at%204.07.50%20PM.png)
+
+## Code snippet of saving a book as an object and posting it to an API route via Axios
+![Saving function](https://github.com/leticiaroncero/google-books-search/blob/master/Screen%20Shot%202020-02-26%20at%204.08.50%20PM.png)
