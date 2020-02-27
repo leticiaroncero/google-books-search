@@ -23,3 +23,17 @@ button {
 .main-container {
     padding-right: 10px;
 }
+@media screen and (max-width: 990px) {
+    .booklist-item {
+        width: 400px;
+        margin: 2px auto;
+    
+    }
+}
+@media screen and (max-width: 400px) {
+    .booklist-item {
+        width: 250px;
+        margin: 2px auto;
+    }
+    
+}

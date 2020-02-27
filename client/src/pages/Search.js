@@ -15,7 +15,7 @@ class Search extends Component {
     };
 
     handleInputChange = event => {
-      console.log(event)
+      
       const { name, value } = event.target;
       this.setState({
         [name] : value
@@ -24,7 +24,7 @@ class Search extends Component {
 
     handleFormSubmit = event => {
       event.preventDefault();
-      console.log("submit clicked")
+    
       axios.get("https://www.googleapis.com/books/v1/volumes?q=" + this.state.bookSearch)
       .then(res =>
         //console.log(res.data.items)
@@ -33,10 +33,9 @@ class Search extends Component {
       
     }; 
   handlesave = book => {
-    console.log("handlesave:", book)
-    console.log(this.state.books)
+    
       const savedBook= this.state.books.filter(elem=>elem.id === book)
-      console.log("savebbook:",savedBook)
+      
       const booktobeSaved = {
           
           title: savedBook[0].volumeInfo.title,
