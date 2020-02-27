@@ -1,6 +1,6 @@
 # google-books-search
 
-## Technologies used;
+## Technologies used:
 Visual Studio Code, React, Google Books API, Bootstrap
 
 ## Summary
