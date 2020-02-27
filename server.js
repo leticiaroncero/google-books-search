@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
 app.get("/api/books", (req, res) => {
   //query books from database
-  console.log("api get books fron mongo")
+  console.log("api get books from mongo")
   db.Book.find()
     .then(function (dbBook) {
       console.log(dbBook)
